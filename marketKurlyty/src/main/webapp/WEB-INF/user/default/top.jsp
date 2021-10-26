@@ -53,12 +53,12 @@
 <link rel="icon" type="image/png" sizes="16x16"
 	href="https://res.kurly.com/images/marketkurly/logo/ico_16.png">
 
-<link rel="styleSheet" href="../../style/default/style.css">
-<link rel="styleSheet" href="../../style/default/style2.css">
-<link rel="styleSheet" href="../../style/default/style3.css">
-<link rel="styleSheet" href="../../style/default/style4.css">
-<link rel="styleSheet" href="../../style/default/brn_qnbStyle.css">
-<link rel="styleSheet" href="../../style/default/topButton.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/style.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/style2.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/style3.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/style4.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/brn_qnbStyle.css">
+<link rel="styleSheet" href="${pageContext.request.contextPath }/resources/style/default/topButton.css">
 
 
 <style>
