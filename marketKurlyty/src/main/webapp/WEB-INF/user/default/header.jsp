@@ -6,14 +6,76 @@
 			url:"categoryData.do",
 			datatype:"json",
 			success:function(res){
+				console.log(res)
 				const data = JSON.parse(res);
-				console.log(data.serial);
-				console.log(data.name)
+				for(key in data){
+					$(".gnb_sub ul.gnb_menu").
+					append("<li><a href='#' class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
+							"<img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconColor+".png' class='icon_off'></span>"+
+							"<span class='name'>"+data[key].name+"</span></a></li>");
+					console.log(data[key].serial);
+					console.log(data[key].name);
+					console.log(data[key].iconBlack);
+					console.log(data[key].iconColor);
+				}
+				$("#categoryMain li").mouseover(function(){
+					$(this).css("background","#efebf0");
+					$(this).find("img:eq(0)").attr("class","icon_off");
+					$(this).find("img:eq(1)").attr("class","icon_on");
+					$(this).find(".name").css("color","#8700a8");
+				});
+				$("#categoryMain li").mouseleave(function(){
+					$(this).css("background","none");
+					$(this).find("img:eq(0)").attr("class","icon_on");
+					$(this).find("img:eq(1)").attr("class","icon_off");
+					$(this).find(".name").css("color","black");
+				});
 			}
 			
 		});
+		$(".menu1").hover(function(){
+			$(".gnb_sub").css("display","block");
+		});
+		$(".menu1").mouseleave(function(){
+			$(".gnb_sub").css("display","none");
+		});
+		$(".gnb_sub").hover(function(){
+			$(this).css("display","block");
+		});
+		$(".gnb_sub").mouseleave(function(){
+			$(this).css("display","none");
+		});
+		
 	});
+	
+	
 </script>
+<style>
+.icon_off{
+	display:none;
+}
+.icon_on{
+	display:block;
+}
+.gnb_sub ul.gnb_menu .icon{
+float:left;
+width:24px;
+height:24px;
+}
+.gnb_sub ul.gnb_menu .name{
+float:left;
+width:100px;
+height:24px;
+font-family:sans-serif;
+font-weight:bold;
+font-size:15px;
+line-height:1.7;
+}
+.gnb_sub ul.gnb_menu li{
+text-align:left;
+
+}
+</style>
 <div id="header">
 	<!-- 헤더부분 -->
 
@@ -144,8 +206,8 @@
 				</div>
 				<div class="gnb_sub">
 					<div class="inner_sub">
-						<ul data-default="219" data-min="219" data-max="731"
-							class="gnb_menu size_over" style="height: 520.833px;">
+						<ul id="categoryMain"
+							class="gnb_menu size_over" style="height: 200.833px;">
 							<!-- <li class=""><a class="menu on"><span class="ico"><img
 										src="https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive_pc@2x.1586324570.png"
 										alt="카테고리 아이콘" class="ico_off"> <img

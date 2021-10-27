@@ -1,5 +1,11 @@
 package first.market.kurlyty.vo;
 
-public class CategoryMainVO {
+import lombok.Data;
 
+@Data
+public class CategoryMainVO {
+	private String serial;
+	private String name;
+	private String iconBlack;
+	private String iconColor;
 }
