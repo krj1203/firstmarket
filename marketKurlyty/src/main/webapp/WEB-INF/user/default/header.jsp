@@ -10,8 +10,8 @@
 				const data = JSON.parse(res);
 				for(key in data){
 					$(".gnb_sub ul.gnb_menu").
-					append("<li><a href='#' class='menu'><span class='icon'><img src='images/"+data[key].iconBlack+".png' class='icon_on'>"+
-							"<img src='images/"+data[key].iconColor+".png' class='icon_off'></span>"+
+					append("<li><a href='#' class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
+							"<img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconColor+".png' class='icon_off'></span>"+
 							"<span class='name'>"+data[key].name+"</span></a></li>");
 					console.log(data[key].serial);
 					console.log(data[key].name);

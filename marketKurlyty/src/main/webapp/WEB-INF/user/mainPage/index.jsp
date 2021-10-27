@@ -27,7 +27,7 @@
 						style="width: 100%;">
 						<div id="shellMain"
 							style="width: 100%; height: 370px; margin-bottom: 80px; overflow: hidden; background: #eee;">
-							<img src="images/BigBenu/benu1.png"
+							<img src="${pageContext.request.contextPath }/resources/images/BigBenu/benu1.png"
 								style="width: 100%; height: 100%; object-fit: cover">
 							<!-- <div class="shell_ani" style="width: 10%; height: inherit; background: none; background: linear-gradient(to right, rgba(225, 225, 225, 0), rgba(255, 255, 255, .1), rgba(255, 255, 255, 0))"> -->
 						</div>
@@ -42,7 +42,7 @@
 								<c:forEach begin="1" end="3" step="1">
 									<li>
 										<div class="foodImg">
-											<a href="#"><img src="images/Item/foodItem.png"></a>
+											<a href="#"><img src="${pageContext.request.contextPath }/resources/images/Item/foodItem.png"></a>
 										</div> <a class="info" href="#"> <span class="name">[네이처]
 												오이 묶음</span> <span class="cost"> <span class="dc">36%</span>
 												<span class="price">7,500원</span> <span class="origin">11,800원</span>
@@ -64,7 +64,7 @@
 								<c:forEach begin="1" end="3" step="1">
 									<li>
 										<div class="foodImg">
-											<a href="#"><img src="images/Item/foodItem.png"></a>
+											<a href="#"><img src="${pageContext.request.contextPath }/resources/images/Item/foodItem.png"></a>
 										</div> <a class="info" href="#"> <span class="name">[네이처]
 												오이 묶음</span> <span class="cost"> <span class="dc">36%</span>
 												<span class="price">7,500원</span> <span class="origin">11,800원</span>
@@ -95,7 +95,7 @@
 									<c:forEach begin="1" end="3" step="1">
 										<li>
 											<div class="foodImg">
-												<a href="#"><img src="images/Item/foodItem.png"></a>
+												<a href="#"><img src="${pageContext.request.contextPath }/resources/images/Item/foodItem.png"></a>
 											</div> <a class="info" href="#"> <span class="name">[네이처]
 													오이 묶음</span> <span class="cost"> <span class="dc">36%</span>
 													<span class="price">7,500원</span> <span class="origin">11,800원</span>

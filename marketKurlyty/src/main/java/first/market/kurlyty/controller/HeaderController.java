@@ -23,7 +23,7 @@ public class HeaderController {
 	@ResponseBody
 	public String getCategoryMain() {
 		StringBuffer categoryMain = new StringBuffer();
-		List<CategoryMainVO> category =jdbc.query("select * from mk_category_main", new RowMapper<CategoryMainVO>() {
+		List<CategoryMainVO> category =jdbc.query("select * from mk_category_main order by category_main_serial ASC", new RowMapper<CategoryMainVO>() {
 			@Override
 			public CategoryMainVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				CategoryMainVO category = new CategoryMainVO();
