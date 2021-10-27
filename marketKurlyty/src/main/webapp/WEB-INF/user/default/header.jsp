@@ -150,11 +150,11 @@ text-align:left;
 						<li class="menu1" class="on"><a href="#none"><span
 								class="ico"></span><span class="txt">전체 카테고리</span></a></li>
 						<li class="menu2"><a class="link new "
-							href="newGoodsPage.jsp"><span class="txt">신상품</span></a></li>
-						<li class="menu3"><a class="link best " href="BestGoods.jsp"><span
+							href="newGoodsPage.do"><span class="txt">신상품</span></a></li>
+						<li class="menu3"><a class="link best " href="BestGoodsPage.do"><span
 								class="txt">베스트</span></a></li>
 						<li class="menu4"><a class="link bargain "
-							href="altleShopping.jsp"><span class="txt">알뜰쇼핑</span></a></li>
+							href="altleShopping.do"><span class="txt">알뜰쇼핑</span></a></li>
 						<li class="lst"><a class="link event "
 							href="/shop/goods/event.php?&"><span class="txt">특가/혜택</span></a></li>
 					</ul>

@@ -75,4 +75,16 @@ public class HeaderController {
 	public String index() {
 		return "mainPage/index";
 	}
+	@RequestMapping("/BestGoodsPage.do")
+	public String BestGoods() {
+		return "mainPage/BestGoodsPage"; 
+	}
+	@RequestMapping("/newGoodsPage.do")
+	public String newGoodsPage() {
+		return "mainPage/newGoodsPage"; 
+	}
+	@RequestMapping("/altleShopping.do")
+	public String altleShopping() {
+		return "mainPage/altleShopping"; 
+	}
 }
