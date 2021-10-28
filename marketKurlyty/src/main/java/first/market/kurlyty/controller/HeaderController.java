@@ -36,6 +36,7 @@ public class HeaderController {
 //		//categoryData.append("{}]");
 //		return categoryData.toString();
 //	}
+	
 	@RequestMapping("/index.do")
 	public String index() {
 		return "mainPage/index";
