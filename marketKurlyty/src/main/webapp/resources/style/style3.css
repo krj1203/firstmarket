@@ -2592,7 +2592,7 @@ input[type=search]::-webkit-clear-button, input[type=email]::-webkit-clear-butto
 }
 
 .section_orderlist .list_order .thumb {
-	float: left;
+	float: none;
 	width: 60px;
 	margin-right: 20px
 }
