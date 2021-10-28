@@ -231,4 +231,16 @@ public class HeaderController {
 	public String cartAndPayment2() {
 		return "cart_and_payment/cart"; 
 	}
+	
+// admin 
+	@RequestMapping("/admin_index.mdo")
+	public String adminindex() {
+		return "admin_index"; 
+	}
+	
+// admin 
+	@RequestMapping("/admin_index.mdo")
+	public String adminindex() {
+		return "admin_index"; 
+	}
 }

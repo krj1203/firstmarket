@@ -13,10 +13,10 @@
 pace-inactive
 <title>Admin_Market</title>
 <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> -->
-<link href="style/tstyles.css" rel="stylesheet" />
-<link href="style/tstyles2.css" rel="stylesheet" />
-<link href="style/tstyles3.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> 
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/style/admin/tstyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/style/admin/tstyle2.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/style/admin/tstyle3.css">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> --> 
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
