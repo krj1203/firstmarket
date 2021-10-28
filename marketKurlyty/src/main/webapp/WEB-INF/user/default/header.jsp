@@ -10,26 +10,40 @@
 				const data = JSON.parse(res);
 				for(key in data){
 					$(".gnb_sub ul.gnb_menu").
-					append("<li><a href='#' class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
+					append("<li class="+data[key].serial+"><a href='#' class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
 							"<img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconColor+".png' class='icon_off'></span>"+
 							"<span class='name'>"+data[key].name+"</span></a></li>");
 					console.log(data[key].serial);
 					console.log(data[key].name);
 					console.log(data[key].iconBlack);
 					console.log(data[key].iconColor);
+					console.log(data[key].data);
+					$(".gnb_sub ul.gnb_menu").find("li."+data[key].serial).append("<ul class='sub'></ul>");
+					for(sub in data[key].data){
+						$("ul.gnb_menu li."+data[key].serial).find("ul").
+						append("<li><a class='sub'><span>"+data[key].data[sub].name).
+						append("</span></a></li>")
+						console.log(data[key].data[sub].serial);
+						console.log(data[key].data[sub].name);
+						console.log(data[key].data[sub].firstSerial);
+					}
+					$("#categoryMain li").mouseover(function(){
+						$(this).css("background","#efebf0");
+						$(this).find("img:eq(0)").attr("class","icon_off");
+						$(this).find("img:eq(1)").attr("class","icon_on");
+						$(this).find(".name").css("color","#8700a8");
+						$(this).find("ul").attr("class", "sub_on");
+						$(".gnb_sub").css("width","438");
+					});
+					$("#categoryMain li").mouseleave(function(){
+						$(this).css("background","none");
+						$(this).find("img:eq(0)").attr("class","icon_on");
+						$(this).find("img:eq(1)").attr("class","icon_off");
+						$(this).find(".name").css("color","black");
+						$(this).find("ul").attr("class","sub");
+						$(".gnb_sub").css("width","219");
+					});
 				}
-				$("#categoryMain li").mouseover(function(){
-					$(this).css("background","#efebf0");
-					$(this).find("img:eq(0)").attr("class","icon_off");
-					$(this).find("img:eq(1)").attr("class","icon_on");
-					$(this).find(".name").css("color","#8700a8");
-				});
-				$("#categoryMain li").mouseleave(function(){
-					$(this).css("background","none");
-					$(this).find("img:eq(0)").attr("class","icon_on");
-					$(this).find("img:eq(1)").attr("class","icon_off");
-					$(this).find(".name").css("color","black");
-				});
 			}
 			
 		});
@@ -51,29 +65,63 @@
 	
 </script>
 <style>
-.icon_off{
-	display:none;
+.icon_off {
+	display: none;
 }
-.icon_on{
-	display:block;
-}
-.gnb_sub ul.gnb_menu .icon{
-float:left;
-width:24px;
-height:24px;
-}
-.gnb_sub ul.gnb_menu .name{
-float:left;
-width:100px;
-height:24px;
-font-family:sans-serif;
-font-weight:bold;
-font-size:15px;
-line-height:1.7;
-}
-.gnb_sub ul.gnb_menu li{
-text-align:left;
 
+.icon_on {
+	display: block;
+}
+
+.gnb_sub ul.gnb_menu .icon {
+	float: left;
+	width: 24px;
+	height: 24px;
+}
+
+.gnb_sub ul.gnb_menu .name {
+	float: left;
+	width: 100px;
+	height: 24px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+.gnb_sub ul.gnb_menu li {
+	text-align: left;
+}
+
+ul.sub {
+	position:absolute;
+	z-index:0;
+	left:200px;
+	top:0px;
+	width:248px;
+	height:100%;
+	padding: 0 0 0 20px;
+	opacity:0;
+	transition:opacity 0.2s;
+}
+ul.sub_on{
+	position:absolute;
+	z-index:1;
+	left:200px;
+	top:0px;
+	width:248px;
+	height:100%;
+	padding: 0 0 0 20px;
+	opacity:1;
+	transition:opacity 0.5s;
+}
+ul.sub_on li {
+	width: 100px;
+	height: 24px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 1.7;
 }
 </style>
 <div id="header">
