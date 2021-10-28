@@ -3,9 +3,8 @@ package first.market.kurlyty.vo;
 import lombok.Data;
 
 @Data
-public class CategoryMainVO {
+public class CategorySubVO {
 	private String serial;
 	private String name;
-	private String iconBlack;
-	private String iconColor;
+	private String firstSerial;
 }
