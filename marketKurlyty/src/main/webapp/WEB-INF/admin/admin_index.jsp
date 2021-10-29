@@ -217,7 +217,16 @@ pace-inactive
 							</div>
 						</div>
 					</div>
-				
+					<div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary1 text-black mb-4">
+                            <div class="card-body">배송</div>
+                            <div
+                                class="card-footer d-flex align-items-center justify-content-between">
+                                배송중 <a href="ben_index.jsp" class="cards">0건</a>
+                                 배송완료 <a href="ben_index.jsp" class="cards">0건</a>
+                            </div>
+                        </div>
+                    </div>
 					<div class="col-xl-3 col-md-6">
 						<div class="card bg-purple text-black mb-4">
 							<div class="card-body">클레임</div>
