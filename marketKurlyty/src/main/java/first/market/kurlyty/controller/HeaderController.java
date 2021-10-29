@@ -202,4 +202,8 @@ public class HeaderController {
    public String cartAndPayment2() {
       return "cart_and_payment/cart"; 
    }
+   @RequestMapping("/admin_index.mdo")
+   public String adminindex() {
+      return "admin_index"; 
+   }
 }
