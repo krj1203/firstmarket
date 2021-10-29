@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import first.market.kurlyty.user.dao.UserDAO;
 import first.market.kurlyty.user.vo.UserVO;
 
-@Service("UserService")
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
