@@ -46,12 +46,12 @@
 							</div>
 							
 							<!-- 주문내역이 없을경우 ↓↓↓↓↓↓↓↓ -->
-							<ul class="list_order"> 
+							<!-- <ul class="list_order"> 
 								<li class="no_data">주문내역이 없습니다.</li>
-							</ul>
+							</ul> -->
 							
 							<!-- 주문내역이 있는경우 ↓↓↓↓↓↓↓↓ -->
-							<!-- <ul class="list_order">   
+							<ul class="list_order">   
 								<li>
 									<div class="date">2021.06.04 (12시 28분)</div>
 									<div class="order_goods">
@@ -84,7 +84,7 @@
 										</div>
 									</div>
 								</li>
-							</ul> -->
+							</ul>
 									
 							<div class="layout-pagination"><!-- 이전, 다음 페이지 처리  -->
 								<div class="pagediv">
