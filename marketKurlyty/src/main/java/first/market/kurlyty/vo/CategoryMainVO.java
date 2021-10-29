@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class CategoryMainVO {
-	private String serial;
-	private String name;
-	private String iconBlack;
-	private String iconColor;
+	private String category_main_serial;
+	private String category_main_name;
+	private String category_main_icon_black;
+	private String category_main_icon_color;
 }

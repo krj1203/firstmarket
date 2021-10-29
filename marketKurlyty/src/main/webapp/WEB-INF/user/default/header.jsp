@@ -21,7 +21,7 @@
 					$(".gnb_sub ul.gnb_menu").find("li."+data[key].serial).append("<ul class='sub'></ul>");
 					for(sub in data[key].data){
 						$("ul.gnb_menu li."+data[key].serial).find("ul").
-						append("<li><a class='sub'><span>"+data[key].data[sub].name).
+						append("<li><a class='sub' href='#'><span>"+data[key].data[sub].name).
 						append("</span></a></li>")
 						console.log(data[key].data[sub].serial);
 						console.log(data[key].data[sub].name);
@@ -34,6 +34,12 @@
 						$(this).find(".name").css("color","#8700a8");
 						$(this).find("ul").attr("class", "sub_on");
 						$(".gnb_sub").css("width","438");
+						$("#categoryMain ul.sub_on").find("li").mouseover(function(){
+							$(this).attr("class","on");
+						});
+						$("#categoryMain ul.sub_on").find("li").mouseleave(function(){
+							$(this).attr("class","");
+						});
 					});
 					$("#categoryMain li").mouseleave(function(){
 						$(this).css("background","none");
@@ -42,6 +48,18 @@
 						$(this).find(".name").css("color","black");
 						$(this).find("ul").attr("class","sub");
 						$(".gnb_sub").css("width","219");
+						$("#categoryMain ul.sub_on").find("li").mouseover(function(){
+							$(this).attr("class","on");
+						});
+						$("#categoryMain ul.sub_on").find("li").mouseleave(function(){
+							$(this).attr("class","");
+						});
+					});
+					$("#categoryMain ul.sub_on").mouseover(function(){
+						$(this).attr("class","on");
+					});
+					$("#categoryMain ul.sub_on").mouseleave(function(){
+						$(this).attr("class","");
 					});
 				}
 			}
@@ -79,7 +97,7 @@
 	height: 24px;
 }
 
-.gnb_sub ul.gnb_menu .name {
+.gnb_sub ul.gnb_menu .name{
 	float: left;
 	width: 100px;
 	height: 24px;
@@ -115,13 +133,18 @@ ul.sub_on{
 	opacity:1;
 	transition:opacity 0.5s;
 }
-ul.sub_on li {
+.gnb_sub ul.gnb_menu li ul li {
 	width: 100px;
 	height: 24px;
+	margin-left: 10px;
 	font-family: sans-serif;
 	font-weight: bold;
-	font-size: 15px;
-	line-height: 1.7;
+	font-size: 14px;
+	line-height: 2;
+}
+ul.sub_on li.on{
+	text-decoration:underline;
+	color:#8700a8;
 }
 </style>
 <div id="header">
