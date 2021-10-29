@@ -15,6 +15,9 @@ public class UserDAO {
 	public UserVO getUser(UserVO user) {
 		return sqlSession.selectOne("UserDAO.getUser", user);
 	}
+	public UserVO checkEmail(UserVO user) {
+		return sqlSession.selectOne("UserDAO.checkEmail",user);
+	}
 	public int insertUser(UserVO user) {
 		return sqlSession.insert("UserDAO.insertUser", user);
 	}

@@ -146,7 +146,7 @@ ul.sub_on li {
 	<div id="userMenu">
 		<ul class="list_menu">
 			<li class="menu none_sub menu_join"><a
-				href="/shop/member/join.php" class="link_menu">회원가입</a></li>
+				href="join.do" class="link_menu">회원가입</a></li>
 			<li class="menu none_sub menu_login"><a
 				href="/shop/member/login.php" class="link_menu">로그인</a> <!----></li>
 			<!---->

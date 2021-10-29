@@ -6,7 +6,12 @@
  	<select id="getUser" resultType="user" parameterType="user">
  		SELECT * FROM MK_USER WHERE user_id=#{user_id}
  	</select>
+ 	<select id="checkEmail" resultType="user" parameterType="user">
+ 		SELECT * FROM MK_USER WHERE user_email=#{user_email}
+ 	</select>
  	<insert id="insertUser" parameterType="user">
- 		INSERT INTO MK_USER VALUES(#{user_id},1,1,1,1,1,1,1,1,1)
+ 		INSERT INTO MK_USER VALUES(#{user_id},#{user_pw},#{user_name},
+ 		#{user_email},#{user_phone},#{user_address1},#{user_address2},#{user_zipcode},
+ 		#{user_sex},#{user_birth})
  	</insert>
 </mapper>
