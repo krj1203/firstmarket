@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="UserDAO">
+ 	<select id="getUser" resultType="user" parameterType="user">
+ 		SELECT * FROM MK_USER WHERE user_id=#{user_id}
+ 	</select>
+ 	<insert id="insertUser" parameterType="user">
+ 		INSERT INTO MK_USER VALUES(#{user_id},1,1,1,1,1,1,1,1,1)
+ 	</insert>
+</mapper>
