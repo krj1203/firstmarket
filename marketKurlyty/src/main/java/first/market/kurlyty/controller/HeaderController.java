@@ -1,12 +1,9 @@
 package first.market.kurlyty.controller;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,49 +15,32 @@ import first.market.kurlyty.vo.CategorySubVO;
 
 @Controller
 public class HeaderController {
+//	@Autowired
+//	private JdbcTemplate jdbc;
+	
 	@Autowired
-	private JdbcTemplate jdbc;
+	private SqlSessionTemplate sqlSession;
+	
 	@RequestMapping(value="categoryData.do", produces="html/text; charset=utf-8")
 	@ResponseBody
 	public String getCategoryMain() {
 		StringBuffer categoryMain = new StringBuffer();
-		List<CategoryMainVO> category =jdbc.query("select * from mk_category_main order by category_main_serial ASC", new RowMapper<CategoryMainVO>() {
-			@Override
-			public CategoryMainVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				CategoryMainVO category = new CategoryMainVO();
-				category.setSerial(rs.getString("category_main_serial"));
-				category.setName(rs.getString("category_main_name"));
-				category.setIconBlack(rs.getString("category_main_icon_black"));
-				category.setIconColor(rs.getString("category_main_icon_color"));
-				return category;
-			}
-			
-		});
+
+		List<CategoryMainVO> category = sqlSession.selectList("CategoryDAO.getCategoryMain");
 		categoryMain.append("[");
 		
 		for(CategoryMainVO cm : category) {
-			List<CategorySubVO> categorySub = jdbc.query("select * from mk_category_sub where category_sub_first_no=?",
-					new RowMapper<CategorySubVO>() {
-						@Override
-						public CategorySubVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-							CategorySubVO category = new CategorySubVO();
-							category.setSerial(rs.getString("category_sub_serial"));
-							category.setName(rs.getString("category_sub_name"));
-							category.setFirstSerial(rs.getString("category_sub_first_no"));
-							return category;
-						}
-				
-			},new Object[]{cm.getSerial()});
+			List<CategorySubVO> categorySub = sqlSession.selectList("CategoryDAO.getCategorySub",cm);
 			
-			categoryMain.append("{\"serial\":"+"\""+cm.getSerial()+"\",");
-			categoryMain.append("\"name\":"+"\""+cm.getName()+"\",");
-			categoryMain.append("\"iconBlack\":"+"\""+cm.getIconBlack()+"\",");
-			categoryMain.append("\"iconColor\":"+"\""+cm.getIconColor()+"\",");
+			categoryMain.append("{\"serial\":"+"\""+cm.getCategory_main_serial()+"\",");
+			categoryMain.append("\"name\":"+"\""+cm.getCategory_main_name()+"\",");
+			categoryMain.append("\"iconBlack\":"+"\""+cm.getCategory_main_icon_black()+"\",");
+			categoryMain.append("\"iconColor\":"+"\""+cm.getCategory_main_icon_color()+"\",");
 			categoryMain.append("\"data\":[");
 			for(CategorySubVO sub : categorySub) {
-				categoryMain.append("{\"serial\":"+"\""+sub.getSerial()+"\",");
-				categoryMain.append("\"name\":"+"\""+sub.getName()+"\",");
-				categoryMain.append("\"firstSerial\":"+"\""+sub.getFirstSerial()+"\"},");
+				categoryMain.append("{\"serial\":"+"\""+sub.getCategory_sub_serial()+"\",");
+				categoryMain.append("\"name\":"+"\""+sub.getCategory_sub_name()+"\",");
+				categoryMain.append("\"firstSerial\":"+"\""+sub.getCategory_sub_first_no()+"\"},");
 			}
 			categoryMain.deleteCharAt(categoryMain.length()-1);
 			categoryMain.append("]");
@@ -68,8 +48,10 @@ public class HeaderController {
 		}
 		String jsonCategory = categoryMain.substring(0, categoryMain.length()-1) + "]";
 		System.out.println(jsonCategory);
+		System.out.println("변경 확인");
 		return jsonCategory;
 	}
+	
 	@RequestMapping("/index.do")
 	public String index() {
 		return "mainPage/index";
@@ -171,10 +153,7 @@ public class HeaderController {
 	
 	/*login and Join*/
 	//회원가입
-	@RequestMapping("/join.do")
-	public String loginAndJoin1() {
-		return "login_and_join/join"; 
-	}
+	
 	//로그인
 	@RequestMapping("/login.do")
 	public String loginAndJoin2() {

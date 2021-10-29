@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CategorySubVO {
-	private String serial;
-	private String name;
-	private String firstSerial;
+	private String category_sub_serial;
+	private String category_sub_name;
+	private String category_sub_first_no;
 }
