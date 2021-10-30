@@ -35,6 +35,7 @@ function formJoinSubmit(){
 	var mon = $("#birth_month").val();
 	var day = $("#birth_day").val();
 	$("#totalbirth").val(year+mon+day);
+	
 	if(document.frmMember.user_id.value==""){
 		alert("아이디를 입력하세요.");
 		document.frmMember.user_id.focus();
@@ -85,6 +86,10 @@ function formJoinSubmit(){
 		document.frmMember.user_phone.focus();
 		return;
 	}
+	/* if(document.frmMember.okCerCheck.value=="불가능"){
+		alert("문자 인증을 해주세요.");
+		return;
+	} */
 	if(document.frmMember.user_zipcode.value==""){
 		alert("주소를 입력하세요.");
 		document.frmMember.user_zipcode.focus();
@@ -110,7 +115,7 @@ function chkId(){
 			const data = JSON.parse(res);
 			alert(data.message);
 			$("#posibleId").val(data.usedId);
-		},
+		}
 	})
 }
 function chkEmail(){
@@ -122,11 +127,40 @@ function chkEmail(){
 			const data = JSON.parse(res);
 			alert(data.message);
 			$("#posibleEmail").val(data.usedEmail);
-		},
+		}
 	})
+}
+function smsResponse(){
+	alert("문자 ㄱㄱ");
+	var phone = document.frmMember.user_phone.value;
+	$.ajax({
+		url:"smsCheck.do?user_phone="+phone,
+		datatype:"json",
+		success:function(res){
+			const data = JSON.parse(res);
+			$("#checkNum").val(data.checkNum);
+			$(".phoneHid").attr("class","addressShow");
+		}
+	});
+	
+}
+function certCheck(){
+	var smsCheck = $("#smsCheck").val();
+	var checkNum = $("#checkNum").val();
+	if(smsCheck==checkNum){
+		alert("인증이 성공적으로 되었습니다.");
+		$("#okCerCheck").val("가능");
+	}
+	else{
+		alert("인증에 실패했습니다. 다시 입력해주세요.");
+		$("#okCerCheck").val("불가능");
+	}
 }
 </script>
 <style>
+.phoneHid{
+	display:none;
+}
 .hid{
 	display:none;
 }
@@ -182,7 +216,7 @@ function chkEmail(){
 											<td>
 												<input type="text" name="user_id" value="" maxlength="16" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
 													label="아이디">
-												<input id="posibleId" type="hidden" name="chk_id" label="아이디중복체크" value="">
+												<input id="posibleId" type="hidden" name="chk_id" label="아이디중복체크" value="불가능">
 												<a class="btn default" href="javascript:chkId()">중복확인</a>
 												<p class="txt_guide square">
 													<span class="txt txt_case1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
@@ -224,7 +258,7 @@ function chkEmail(){
 											<td>
 												<input type="text" name="user_email" value="" data-email="" size="30" label="이메일"
 													placeholder="예: marketkurly@kurly.com">
-												<input id="posibleEmail" type="hidden" name="chk_email" label="이메일중복체크">
+												<input id="posibleEmail" type="hidden" name="chk_email" label="이메일중복체크" value="불가능">
 												<a href="javascript:void(0)"
 													onclick="chkEmail()" class="btn default">중복확인</a>
 											</td>
@@ -236,7 +270,7 @@ function chkEmail(){
 												<div class="phone_num">
 													<input type="text" value="" pattern="[0-9]*"
 														name="user_phone" placeholder="숫자만 입력해주세요" class="inp">
-													<button id="btn_cert" class="btn default disabled"
+													<button id="btn_cert" class="btn default enabled" onclick="smsResponse()"
 														type="button">인증번호 받기</button>
 												</div>
 												<!-- <div id="codeNum" class="code_num">
@@ -254,6 +288,21 @@ function chkEmail(){
 												</p>
 											</td>
 										</tr>
+										<tr>
+											<th></th>
+											<td>
+												<div class="phoneHid">
+													<input id="smsCheck" type="text" name="smsCheck" size="6" maxlength="6" value="" />
+													<button id="btn_cert" class="btn default enabled" onclick="certCheck()"
+														type="button">인증번호 확인</button>
+													<input type="hidden" id="posiblePhone"/>
+													<input type="hidden" id="checkNum"/>
+													<input type="hidden" id="okCerCheck" value="불가능"/> 
+												</div>
+											</td>
+
+										</tr>
+										
 										<tr>
 											<th>주소<span class="ico">*<span class="screen_out">필수항목</span></span></th>
 												<td class="field_address">
