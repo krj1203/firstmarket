@@ -201,7 +201,7 @@ ul.sub_on li.on{
 	<div id="headerLogo" class="layout-wrapper">
 		<h1 class="logo">
 			<a href="index.do" class="link_main"> <span
-				id="gnbLogoContainer"></span> <img src="images/logo_x2.png"
+				id="gnbLogoContainer"></span> <img src="${pageContext.request.contextPath }/resources/images/logo.png"
 				alt="마켓컬리 로고">
 			</a>
 		</h1>
