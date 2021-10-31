@@ -185,9 +185,7 @@ function certCheck(){
 					<div class="page_aticle">
 
 						<div class="type_form member_join ">
-							<form id="form" name="frmMember" method="post"
-								action="joinProc.do" onsubmit="return chkForm2(this)"
-								novalidate="">
+							<form id="form" name="frmMember" method="post" action="joinProc.do" novalidate="">
 								<input type="hidden" name="mode" value="joinMember"> <input
 									type="hidden" name="check_mobile" value=""> <input
 									type="hidden" name="auth_finish_code" value=""> <input
