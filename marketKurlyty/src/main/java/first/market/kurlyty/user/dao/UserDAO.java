@@ -21,5 +21,11 @@ public class UserDAO {
 	public int insertUser(UserVO user) {
 		return sqlSession.insert("UserDAO.insertUser", user);
 	}
+	public void insertUserDetails(UserVO user) {
+		sqlSession.insert("UserDAO.insertUserDetails",user);
+	}
+	public void insertUserAddressList(UserVO user) {
+		sqlSession.insert("UserDAO.insertUserAddressList", user);
+	}
 	
 }

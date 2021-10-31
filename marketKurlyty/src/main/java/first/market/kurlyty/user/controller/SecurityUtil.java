@@ -37,6 +37,8 @@ public class SecurityUtil {
 		
 		return new String(decrypted, StandardCharsets.UTF_8);
 	}
+	
+	//이함수 사용
 	public static String sha256(String msg) throws NoSuchAlgorithmException{
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
 		md.update(msg.getBytes());

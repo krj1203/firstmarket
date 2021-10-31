@@ -8,6 +8,8 @@
  		<typeAlias type="first.market.kurlyty.vo.CategoryMainVO" alias="categoryMain"/>
  		<typeAlias type="first.market.kurlyty.vo.CategorySubVO" alias="categorySub"/>
  		<typeAlias type="first.market.kurlyty.user.vo.UserVO" alias="user"/>
+ 		<typeAlias type="first.market.kurlyty.user.vo.UserDetailsVO" alias="userDetails"/>
+ 		<typeAlias type="first.market.kurlyty.user.vo.UserAddressList" alias="userAddressList"/>
  	</typeAliases>
  	<mappers>
  		<mapper resource="config/mappings/category-mapping.xml"/>
