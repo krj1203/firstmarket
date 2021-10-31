@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public int loginProc(UserVO user) {
+	public int joinProc(UserVO user) {
 		int success = 0;
 		success = userDao.insertUser(user);
 		return success;
@@ -37,5 +37,15 @@ public class UserServiceImpl implements UserService {
 		else {
 			return false;
 		}
+	}
+
+	@Override
+	public void initUserDetails(UserVO user) {
+		userDao.insertUserDetails(user);
+	}
+
+	@Override
+	public void initUserAddressList(UserVO user) {
+		userDao.insertUserAddressList(user);
 	}
 }

@@ -15,7 +15,6 @@ import first.market.kurlyty.user.service.UserService;
 import first.market.kurlyty.user.vo.UserVO;
 
 @Controller
-@SessionAttributes("loginStatus")
 public class JoinController {
 	
 	@Autowired
@@ -23,11 +22,12 @@ public class JoinController {
 	
 	@RequestMapping("/join.do")
 	public String loginAndJoin1(Model model) {
-		model.addAttribute("loginStatus",true);
 		return "login_and_join/join";
 	}
+	
+	//회원가입
 	@RequestMapping("/joinProc.do")
-	public String loginProc(UserVO user, Model model) {
+	public String joinProc(UserVO user, Model model) {
 		int success = 0;
 		try {
 			String securityPw = SecurityUtil.sha256(user.getUser_pw());
@@ -35,14 +35,17 @@ public class JoinController {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		success = userService.loginProc(user);
+		success = userService.joinProc(user);
 		if(success==1) {
+			userService.initUserDetails(user);
+			userService.initUserAddressList(user);
 			return "mainPage/index";//=>/WEB-INF/user/mainPAge
 		}else {
 			return "redirect:join.do";
 		}
 	}
 	
+	//회원가입-아이디 체크
 	@RequestMapping(value="/idCheck.do", produces="html/text; charset=utf-8")
 	@ResponseBody
 	public String idCheck(UserVO user) {
@@ -54,6 +57,7 @@ public class JoinController {
 					+ "\"불가능\"}";
 	}
 	
+	//회원가입 - 이메일체크
 	@RequestMapping(value="/emailCheck.do", produces="html/text; charset=utf-8")
 	@ResponseBody
 	public String emailCheck(UserVO user) {
@@ -65,6 +69,7 @@ public class JoinController {
 					+ "\"불가능\"}";
 	}
 	
+	//회원가입 -문자인증
 	@RequestMapping(value="/smsCheck.do", produces="html/text; charset=utf-8" )
 	@ResponseBody
 	public String smsService(UserVO user) {

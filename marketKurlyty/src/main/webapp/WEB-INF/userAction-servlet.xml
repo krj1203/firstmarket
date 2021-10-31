@@ -31,6 +31,8 @@
 			<mvc:exclude-mapping path="/index.do"/>
 			<mvc:exclude-mapping path="/join.do"/>
 			<mvc:exclude-mapping path="/login.do"/>
+			<mvc:exclude-mapping path="/emailCheck.do"/>
+			<mvc:exclude-mapping path="/idCheck.do"/>
 			<mvc:exclude-mapping path="/categoryData.do"/>
 			<mvc:exclude-mapping path="/smsCheck.do"/>
 			<bean id="LoginInterceptor" class="first.market.kurlyty.interceptor.UserLoginInterceptor"/> 
@@ -45,7 +47,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut expression="execution(* first.market.kurlyty.user.service..*(..))" id="txPointcut"/>
+		<aop:pointcut expression="execution(* first.market.kurlyty.user.controller..*(..))" id="txPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>
 

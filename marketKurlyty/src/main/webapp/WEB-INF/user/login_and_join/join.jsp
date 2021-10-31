@@ -184,11 +184,6 @@ function certCheck(){
 					<jsp:include page="../default/sidemenu.jsp"></jsp:include><!-- sidemenu부분 -->
 					<div class="page_aticle">
 
-						<script type="text/javascript"
-							src="/asset/js/useKurly/libText.bundle.js"></script>
-						<script src="/shop/data/skin/designgj/godo.password_strength.js"
-							type="text/javascript"></script>
-						<script src="/common_js/join_v1.js?ver=1.40.4"></script>
 						<div class="type_form member_join ">
 							<form id="form" name="frmMember" method="post"
 								action="joinProc.do" onsubmit="return chkForm2(this)"
