@@ -35,6 +35,7 @@
 			<mvc:exclude-mapping path="/idCheck.do"/>
 			<mvc:exclude-mapping path="/categoryData.do"/>
 			<mvc:exclude-mapping path="/smsCheck.do"/>
+			<mvc:exclude-mapping path="/loginProc.do"/>
 			<bean id="LoginInterceptor" class="first.market.kurlyty.interceptor.UserLoginInterceptor"/> 
 		</mvc:interceptor>
 	</mvc:interceptors>

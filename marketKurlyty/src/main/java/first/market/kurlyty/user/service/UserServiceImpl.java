@@ -48,4 +48,11 @@ public class UserServiceImpl implements UserService {
 	public void initUserAddressList(UserVO user) {
 		userDao.insertUserAddressList(user);
 	}
+	
+	@Override
+	public UserVO loginGetUser(UserVO user) {
+		return userDao.getUser(user);
+	}
+	
+	
 }
