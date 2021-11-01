@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import first.market.kurlyty.vo.CategoryMainVO;
 import first.market.kurlyty.vo.CategorySubVO;
+import first.market.kurlyty.vo.ProductVO;
 
 
 
@@ -25,13 +26,11 @@ public class HeaderController {
 	@ResponseBody
 	public String getCategoryMain() {
 		StringBuffer categoryMain = new StringBuffer();
-
 		List<CategoryMainVO> category = sqlSession.selectList("CategoryDAO.getCategoryMain");
 		categoryMain.append("[");
 		
 		for(CategoryMainVO cm : category) {
 			List<CategorySubVO> categorySub = sqlSession.selectList("CategoryDAO.getCategorySub",cm);
-			
 			categoryMain.append("{\"serial\":"+"\""+cm.getCategory_main_serial()+"\",");
 			categoryMain.append("\"name\":"+"\""+cm.getCategory_main_name()+"\",");
 			categoryMain.append("\"iconBlack\":"+"\""+cm.getCategory_main_icon_black()+"\",");
@@ -50,6 +49,12 @@ public class HeaderController {
 		System.out.println(jsonCategory);
 		System.out.println("변경 확인");
 		return jsonCategory;
+	}
+	@RequestMapping("categoryGoods.do")
+	public String categoryGoods(ProductVO product) {
+		System.out.println(product.getCategory_main_serial());
+		System.out.println(product.getCategory_sub_serial());
+		return "mainPage/categoryGoods";
 	}
 	
 	@RequestMapping("/index.do")

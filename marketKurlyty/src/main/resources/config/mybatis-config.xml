@@ -5,6 +5,7 @@
  <configuration>
  	<properties resource="config/database.properties"/>
  	<typeAliases>
+ 		<typeAlias type="first.market.kurlyty.vo.ProductVO" alias="product"/>
  		<typeAlias type="first.market.kurlyty.vo.CategoryMainVO" alias="categoryMain"/>
  		<typeAlias type="first.market.kurlyty.vo.CategorySubVO" alias="categorySub"/>
  		<typeAlias type="first.market.kurlyty.user.vo.UserVO" alias="user"/>
