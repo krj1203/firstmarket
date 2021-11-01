@@ -1,4 +1,4 @@
-package first.market.kurlyty.dao;
+package first.market.kurlyty.user.dao;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package first.market.kurlyty.controller;
+package first.market.kurlyty.user.controller;
 
 import java.util.List;
 

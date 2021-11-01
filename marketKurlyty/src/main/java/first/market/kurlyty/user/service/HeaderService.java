@@ -1,4 +1,4 @@
-package first.market.kurlyty.service;
+package first.market.kurlyty.user.service;
 
 import java.util.List;
 
