@@ -11,9 +11,11 @@
  		<typeAlias type="first.market.kurlyty.user.vo.UserVO" alias="user"/>
  		<typeAlias type="first.market.kurlyty.user.vo.UserDetailsVO" alias="userDetails"/>
  		<typeAlias type="first.market.kurlyty.user.vo.UserAddressList" alias="userAddressList"/>
+ 		<typeAlias type="first.market.kurlyty.admin.vo.AdminVO" alias="admin"/>
  	</typeAliases>
  	<mappers>
  		<mapper resource="config/mappings/category-mapping.xml"/>
  		<mapper resource="config/mappings/user-mapping.xml"/>
+ 		<mapper resource="config/mappings/admin-mapping.xml"/>
  	</mappers>
  </configuration>
