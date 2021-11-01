@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- ㅡ*.ㅡmapping.xml 만들때 이거 가져가서 사용하세요 -->
+ 
+ 
+ <mapper namespace="UserDAO">
+ 	<select id="getUser" resultType="user" parameterType="user">
+ 		SELECT * FROM MK_USER WHERE user_id=#{user_id}
+ 	</select>
+ 	<select id="checkEmail" resultType="user" parameterType="user">
+ 		SELECT * FROM MK_USER WHERE user_email=#{user_email}
+ 	</select>
+ 	<insert id="insertUser" parameterType="user">
+ 		INSERT INTO MK_USER VALUES(#{user_id},#{user_pw},#{user_name},
+ 		#{user_email},#{user_phone},#{user_address1},#{user_address2},#{user_zipcode},
+ 		#{user_sex},#{user_birth})
+ 	</insert>
+ 	<insert id="insertUserDetails" parameterType="user">
+ 		INSERT INTO MK_USER_DETAILS(user_serial,user_id) VALUES
+ 		(default,#{user_id})
+ 	</insert>
+ 	<insert id="insertUserAddressList" parameterType="user">
+ 		INSERT INTO MK_USER_ADDRESS_LIST VALUES
+ 		(default,#{user_address1},#{user_address2},#{user_zipcode},#{user_id})
+ 	</insert>
+</mapper>

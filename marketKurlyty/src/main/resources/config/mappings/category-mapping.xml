@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="CategoryDAO">
+ 	<select id="getCategoryMain" resultType="categoryMain">
+		SELECT * FROM mk_category_main ORDER BY category_main_serial ASC 	
+ 	</select>
+ 	<select id="getCategorySub" resultType="categorySub" parameterType="categoryMain">
+ 		SELECT * FROM MK_CATEGORY_SUB WHERE category_sub_first_no=#{category_main_serial} ORDER BY category_sub_serial ASC
+ 	</select>
+ 	<select id="getCategoryProductList" resultType="product" parameterType="product">
+ 		SELECT * FROM MK_CATEGORY_GOODS
+ 		WHERE 1=1
+ 		<if test="category_main_serial != null">
+ 			AND category_main_serial=#{category_main_serial}
+ 		</if>
+ 		<if test="category_sub_serial != null">
+ 			AND category_sub_serial=#{category_sub_serial}
+ 		</if>
+ 		ORDER BY category_goods_no
+ 	</select>
+ </mapper>
