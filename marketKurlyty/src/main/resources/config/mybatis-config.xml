@@ -11,10 +11,12 @@
  		<typeAlias type="first.market.kurlyty.user.vo.UserDetailsVO" alias="userDetails"/>
  		<typeAlias type="first.market.kurlyty.user.vo.UserAddressList" alias="userAddressList"/>
  		<typeAlias type="first.market.kurlyty.admin.vo.AdminVO" alias="admin"/>
+ 		<typeAlias type="first.market.kurlyty.board_notice.vo.Board_noticeVO" alias="noticeList"/>
  	</typeAliases>
  	<mappers>
  		<mapper resource="config/mappings/category-mapping.xml"/>
  		<mapper resource="config/mappings/user-mapping.xml"/>
  		<mapper resource="config/mappings/admin-mapping.xml"/>
+ 		<mapper resource="config/mappings/board_notice-mapping.xml"/>
  	</mappers>
  </configuration>
