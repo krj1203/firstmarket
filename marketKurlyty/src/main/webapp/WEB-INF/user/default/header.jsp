@@ -9,23 +9,17 @@
 				console.log(res)
 				const data = JSON.parse(res);
 				for(key in data){
+					var rink = "categoryGoods.do?category_main_serial="+data[key].serial;
 					$(".gnb_sub ul.gnb_menu").
-					append("<li class="+data[key].serial+"><a href='#' class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
+					append("<li class="+data[key].serial+"><a href="+rink+" class='menu'><span class='icon'><img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconBlack+".png' class='icon_on'>"+
 							"<img src='${pageContext.request.contextPath }/resources/images/"+data[key].iconColor+".png' class='icon_off'></span>"+
 							"<span class='name'>"+data[key].name+"</span></a></li>");
-					console.log(data[key].serial);
-					console.log(data[key].name);
-					console.log(data[key].iconBlack);
-					console.log(data[key].iconColor);
-					console.log(data[key].data);
 					$(".gnb_sub ul.gnb_menu").find("li."+data[key].serial).append("<ul class='sub'></ul>");
 					for(sub in data[key].data){
+						var parentSerial = "categoryGoods.do?category_main_serial="+data[key].serial+"&category_sub_serial="+data[key].data[sub].serial;
 						$("ul.gnb_menu li."+data[key].serial).find("ul").
-						append("<li><a class='sub' href='#'><span>"+data[key].data[sub].name).
+						append("<li><a class='sub' href="+parentSerial+"><span>"+data[key].data[sub].name).
 						append("</span></a></li>")
-						console.log(data[key].data[sub].serial);
-						console.log(data[key].data[sub].name);
-						console.log(data[key].data[sub].firstSerial);
 					}
 					$("#categoryMain li").mouseover(function(){
 						$(this).css("background","#efebf0");
