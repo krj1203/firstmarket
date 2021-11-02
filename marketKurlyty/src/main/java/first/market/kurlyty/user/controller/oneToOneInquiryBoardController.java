@@ -122,4 +122,4 @@ public class oneToOneInquiryBoardController {
 	public String customerCenter9() {
 		return "customerCenter/feedbackBoard"; 
 	}
-	
+}
