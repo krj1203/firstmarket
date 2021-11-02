@@ -61,10 +61,10 @@
 																</tr>
 															</thead>
 															<tbody>
-																<c:forEach var="board" items="${board_noticeList }">
+																<c:forEach var="board" items="${board }">
 																	<tr>
 																		<td>${board.notice_serial }</td>
-																		<td><a href="getBoard.do?seq=${board.seq }">${board.notice_title }</a></td>
+																		<td><a href="getBoard.do?seq=${board.notice_serial }">${board.notice_title }</a></td>
 																		<td>${board.notice_id }</td>
 																		<td>${board.notice_date }</td>
 																		<td>${board.notice_hit }</td>
