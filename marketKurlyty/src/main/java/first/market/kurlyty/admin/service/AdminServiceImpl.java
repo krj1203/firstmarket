@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import first.market.kurlyty.admin.dao.AdminDAO;
 import first.market.kurlyty.admin.vo.AdminVO;
 
-@Service
+@Service("adminService")
 public class AdminServiceImpl implements AdminService {
 	
 	@Autowired

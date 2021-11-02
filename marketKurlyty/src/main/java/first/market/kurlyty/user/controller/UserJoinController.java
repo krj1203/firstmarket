@@ -15,7 +15,7 @@ import first.market.kurlyty.user.service.UserService;
 import first.market.kurlyty.user.vo.UserVO;
 
 @Controller
-public class JoinController {
+public class UserJoinController {
 	
 	@Autowired
 	private UserService userService;
