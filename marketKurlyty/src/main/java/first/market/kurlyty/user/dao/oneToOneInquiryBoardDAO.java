@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import first.market.kurlyty.user.vo.UserVO;
 
 @Repository
-public class UserDAO {
+public class oneToOneInquiryBoardDAO {
+
+	//제목만 수정 >>이하 수정해야함 
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
