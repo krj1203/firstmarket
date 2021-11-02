@@ -8,6 +8,7 @@
   		SELECT * FROM MK_ADMIN WHERE admin_id=#{admin_id}
   	</select>	
  	<insert id="insertAdmin" parameterType="admin">
- 		INSERT INTO MK_ADMIN VALUES (#{admin_id},#{admin_name},#{admin_position},#{admin_pw})
+ 		INSERT INTO MK_ADMIN VALUES (#{admin_id},#{admin_name},#{admin_position},#{admin_pw},
+ 		#{admin_email},#{admin_phone},#{admin_address1},#{admin_address2})
  	</insert>
 </mapper>

@@ -13,7 +13,7 @@ import first.market.kurlyty.user.vo.UserVO;
 
 @Controller
 @SessionAttributes("userId")
-public class LoginController {
+public class UserLoginController {
 	
 	@Autowired
 	private UserService userService;
