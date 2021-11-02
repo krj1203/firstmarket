@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+  <mapper namespace="oneToOneInquiryBoardDAO">
+  	<select id="getoneToOneInquiryBoard" resultType="oneToOneInquiryBoard" parameterType="oneToOneInquiryBoard">
+  		SELECT * FROM MK_QNA_PERSONAL WHERE user_id=#{user_id}
+  	</select>	
+ 	<insert id="insertoneToOneInquiryBoard" parameterType="oneToOneInquiryBoard">
+ 		INSERT INTO MK_QNA_PERSONAL VALUES (#{user_id},#{admin_name},#{qna_personal_group_no},#{qna_personal_group_order},#{qna_personal_group_depth}
+ 		,#{order_details_order_serial},#{qna_personal_title},#{qna_personal_content},#{qna_personal_date},#{qna_personal_hit},#{qna_personal_lock})
+ 	</insert>
+</mapper>
