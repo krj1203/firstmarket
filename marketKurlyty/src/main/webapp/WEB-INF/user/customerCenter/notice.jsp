@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <jsp:include page="../default/top.jsp"></jsp:include><!-- 기본 필요 meta, css는 include로 받아옴 -->
@@ -59,15 +61,15 @@
 																</tr>
 															</thead>
 															<tbody>
-																<tr>
-																	<td width="50" nowrap="" align="center">897</td>
-																	<td style="padding-left: 10px; text-align: left; color: #999">
-																		<a href="view.php?id=notice&amp;no=1073">공지사항~</a>
-																	</td>
-																	<td width="100" nowrap="" align="center">MarketKurly</td>
-																	<td width="100" nowrap="" align="center" class="eng2">2021-10-12</td>
-																	<td width="30" nowrap="" align="center" class="eng2">173</td>
-																</tr>
+																<c:forEach var="board" items="${board }">
+																	<tr>
+																		<td>${board.notice_serial }</td>
+																		<td><a href="getBoard.do?seq=${board.notice_serial }">${board.notice_title }</a></td>
+																		<td>${board.notice_id }</td>
+																		<td>${board.notice_date }</td>
+																		<td>${board.notice_hit }</td>
+																	</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>
