@@ -5,6 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -51,9 +52,12 @@ public class HeaderController {
 		return jsonCategory;
 	}
 	@RequestMapping("categoryGoods.do")
-	public String categoryGoods(ProductVO product) {
+	public String categoryGoods(ProductVO product, Model model) {
 		System.out.println(product.getCategory_main_serial());
 		System.out.println(product.getCategory_sub_serial());
+		List<ProductVO> categoryProductList = sqlSession.selectList("CategoryDAO.getCategoryProductList",product);
+		model.addAttribute("categoryProductList",categoryProductList);
+		model.addAttribute("itemCount",categoryProductList.size());
 		return "mainPage/categoryGoods";
 	}
 	

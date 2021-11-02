@@ -40,11 +40,11 @@
 								<div class="sort_menu">
 									<div class="">
 										<p class="count">
-											<span class="inner_count"> 총 463건 </span>
+											<span class="inner_count"> 총 ${itemCount }건 </span>
 										</p>
 										<div class="select_type user_sort">
 											<!---->
-											<a class="name_select">신상품순</a>
+											<a class="name_select">| 신상품순</a>
 											<ul class="list">
 												<li><a class="">추천순</a></li>
 												<li><a class="on">신상품순</a></li>
@@ -63,15 +63,15 @@
 						
 						<div class="MainIntroContain">
 							<ul class="foodList">
-								<c:forEach begin="1" end="50" step="1">
+								<c:forEach var="item" items="${categoryProductList }">
 									<li>
 										<div class="foodImg">
-											<a href="#"><img src="${pageContext.request.contextPath }/resources/images/Item/cream.png"></a>
+											<a href="#"><img src="${pageContext.request.contextPath }/resources/images/Item/${item.category_goods_image_thumb}"></a>
 										</div> <a class="info" href="#">
-												<span class="name">[바이오] 크림치즈</span>
+												<span class="name">${item.category_goods_name }</span>
 												<span class="cost"> <span class="dc">12%</span>
 												<span class="price">6,500원</span> <span class="origin">1,800원</span>
-												<span class="desc">꾸덕한 치즈크림</span>
+												<span class="desc">${item.category_goods_name_subtext }</span>
 										</span>
 									</a>
 									</li>
