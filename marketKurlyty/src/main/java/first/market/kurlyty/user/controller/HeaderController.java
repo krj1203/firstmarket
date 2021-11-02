@@ -111,10 +111,10 @@ public class HeaderController {
 	
 	/*customerCenter*/
 	//공지사항
-	@RequestMapping("/notice.do")
-	public String customerCenter1() {
-		return "customerCenter/notice"; 
-	}
+//	@RequestMapping("/notice.do")
+//	public String customerCenter1() {
+//		return "customerCenter/notice"; 
+//	}
 	//자주하는질문
 	@RequestMapping("/regularQuestion.do")
 	public String customerCenter2() {
