@@ -18,6 +18,6 @@
  		<if test="category_sub_serial != null">
  			AND category_sub_serial=#{category_sub_serial}
  		</if>
- 		ORDER BY category_goods_no
+ 		ORDER BY category_goods_serial
  	</select>
  </mapper>
